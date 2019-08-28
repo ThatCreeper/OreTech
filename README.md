@@ -6,8 +6,7 @@
 
 * [Fabric API](https://www.curseforge.com/minecraft/mc-mods/fabric-api)
 * [LibGUI](https://www.curseforge.com/minecraft/mc-mods/libgui)
-* [Work Units / Cotton Energy](https://www.curseforge.com/minecraft/mc-mods/work-units)
-* [Lib Block Attributes (fabric)](https://www.curseforge.com/minecraft/mc-mods/libblockattributes)
+* [Cardinal Energy](https://www.curseforge.com/minecraft/mc-mods/cardinal-energy)
 
 ### How To Contribute
 

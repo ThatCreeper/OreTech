@@ -20,6 +20,9 @@
   "entrypoints": {
     "main": [
       "com.gmail.creeperhostanimations.oretech.OreTech"
+    ],
+    "client": [
+      "com.gmail.creeperhostanimations.oretech.OreTechClient"
     ]
   },
   "mixins": [
