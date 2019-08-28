@@ -12,6 +12,20 @@ group = project.maven_group
 
 minecraft {
 }
+repositories {
+  jcenter()
+  maven {
+    name = 'Fabric'
+    url = 'https://maven.fabricmc.net/'
+  }
+	maven {
+    name = "BuildCraft"
+    url = "https://mod-buildcraft.com/maven"
+  }
+	maven { url = "http://server.bbkr.space:8081/artifactory/libs-snapshot" }
+	maven { url = "http://server.bbkr.space:8081/artifactory/libs-release" }
+  gradlePluginPortal()
+}
 
 dependencies {
 	//to change the versions see the gradle.properties file
@@ -21,6 +35,9 @@ dependencies {
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modCompile "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+	modCompile "alexiil.mc.lib:libblockattributes-all:0.4.9"
+	modCompile "io.github.cottonmc:cotton-energy:1.5.0+1.14.3-SNAPSHOT"
+	modCompile "io.github.cottonmc:LibGUI:1.2.0"
 
 	// PSA: Some older mods, compiled on Loom 0.2.1, might have outdated Maven POMs.
 	// You may need to force-disable transitiveness on them.

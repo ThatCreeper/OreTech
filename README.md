@@ -1,16 +1,18 @@
-# Fabric Example Mod
+# Oretech
 
-## Setup
+### Mostly just another tech mod.
 
-1. Edit build.gradle and mod.json to suit your needs.
-    * The "mixins" object can be removed from mod.json if you do not need to use mixins.
-    * Please replace all occurences of "modid" with your own mod ID - sometimes, a different string may also suffice.
-2. Run the following command:
+#### Dependencies:  
 
-```
-./gradlew idea
-```
+* [Fabric API](https://www.curseforge.com/minecraft/mc-mods/fabric-api)
+* [LibGUI](https://www.curseforge.com/minecraft/mc-mods/libgui)
+* [Work Units / Cotton Energy](https://www.curseforge.com/minecraft/mc-mods/work-units)
+* [Lib Block Attributes (fabric)](https://www.curseforge.com/minecraft/mc-mods/libblockattributes)
 
-## License
+### How To Contribute
 
-This template is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.
+1. Clone the repository
+2. Run `gradlew genSources`  
+For Idea run `gradlew idea`  
+For Eclipse run `gradlew eclipse`  
+For Visual Studio Code install the [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
