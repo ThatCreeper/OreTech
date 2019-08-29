@@ -1,6 +1,6 @@
 # Oretech
 
-### Mostly just another tech mod.
+### Mostly just another tech mod. ![Oretech travis-ci badge](https://travis-ci.com/ThatCreeper/OreTech.svg?branch=master)
 
 #### Dependencies:  
 
