@@ -1,15 +1,20 @@
 package com.gmail.creeperhostanimations.oretech.blocks.entity;
 
+import com.gmail.creeperhostanimations.oretech.EnergyUtil;
 import com.gmail.creeperhostanimations.oretech.OreTech;
 
 import io.github.cottonmc.cotton.gui.PropertyDelegateHolder;
+import nerdhub.cardinal.components.api.ComponentType;
 import nerdhub.cardinalenergy.api.IEnergyHandler;
 import nerdhub.cardinalenergy.impl.EnergyStorage;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.container.PropertyDelegate;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.util.Tickable;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 
-public class BatteryEntity extends BlockEntity implements IEnergyHandler, PropertyDelegateHolder {
+public class BatteryEntity extends BlockEntity implements IEnergyHandler, PropertyDelegateHolder, Tickable {
 
     public EnergyStorage storage = new EnergyStorage(10000);
 
@@ -65,9 +70,23 @@ public class BatteryEntity extends BlockEntity implements IEnergyHandler, Proper
     }
 
     @Override
+    public void tick() {
+        EnergyUtil.sendEnergyToNeighbors(world, storage, pos, 500);
+    }
+
+    @Override
     public PropertyDelegate getPropertyDelegate() {
         return propertyDelegate;
 	}
 
+    @Override
+    public boolean isEnergyProvider(Direction direction, ComponentType componentType) {
+        return true;
+    }
+
+    @Override
+    public boolean isEnergyReceiver(Direction direction, ComponentType componentType) {
+        return true;
+    }
 
 }

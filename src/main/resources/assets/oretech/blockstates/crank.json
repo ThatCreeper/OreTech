@@ -1,0 +1,12 @@
+{
+    "variants": {
+        "facing=north,crank_rotated=false": { "model": "oretech:block/crank" },
+        "facing=south,crank_rotated=false": { "model": "oretech:block/crank", "y": 180 },
+        "facing=west,crank_rotated=false":  { "model": "oretech:block/crank", "y": 270 },
+        "facing=east,crank_rotated=false":  { "model": "oretech:block/crank", "y": 90 },
+        "facing=north,crank_rotated=true": { "model": "oretech:block/crank_turned" },
+        "facing=south,crank_rotated=true": { "model": "oretech:block/crank_turned", "y": 180 },
+        "facing=west,crank_rotated=true":  { "model": "oretech:block/crank_turned", "y": 270 },
+        "facing=east,crank_rotated=true":  { "model": "oretech:block/crank_turned", "y": 90 }
+    }
+}

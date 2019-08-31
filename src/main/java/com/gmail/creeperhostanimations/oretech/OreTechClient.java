@@ -11,6 +11,7 @@ public class OreTechClient implements ClientModInitializer  {
 
     @Override
     public void onInitializeClient() {
+        //ContainerScreens
         ScreenProviderRegistry.INSTANCE.registerFactory(OreTech.BATTERY_CONTROLLER, (syncId, identifier, player, buf) -> new BatteryControllerScreen(new BatteryController(syncId, player.inventory, BlockContext.create(player.world, buf.readBlockPos())), player));
     }
     
