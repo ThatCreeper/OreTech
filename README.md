@@ -1,13 +1,12 @@
 # Oretech
 
-### Mostly just another tech mod.
+### Mostly just another tech mod. [![Build Status](https://travis-ci.com/ThatCreeper/OreTech.svg?branch=master)](https://travis-ci.com/ThatCreeper/OreTech)
 
 #### Dependencies:  
 
 * [Fabric API](https://www.curseforge.com/minecraft/mc-mods/fabric-api)
 * [LibGUI](https://www.curseforge.com/minecraft/mc-mods/libgui)
-* [Work Units / Cotton Energy](https://www.curseforge.com/minecraft/mc-mods/work-units)
-* [Lib Block Attributes (fabric)](https://www.curseforge.com/minecraft/mc-mods/libblockattributes)
+* [Cardinal Energy](https://www.curseforge.com/minecraft/mc-mods/cardinal-energy)
 
 ### How To Contribute
 
