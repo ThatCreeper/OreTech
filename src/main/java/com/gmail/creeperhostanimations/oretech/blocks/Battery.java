@@ -28,7 +28,7 @@ import net.minecraft.world.World;
 public class Battery extends Block implements BlockEntityProvider, BlockComponentProvider {
 
     public Battery() {
-        super(FabricBlockSettings.of(Material.STONE).build());
+        super(FabricBlockSettings.of(Material.STONE).strength(1, 2).build());
         // TODO Auto-generated constructor stub
     }
 
@@ -64,6 +64,17 @@ public class Battery extends Block implements BlockEntityProvider, BlockComponen
 		}
 		
 		return true;
-	}
+    }
+    
+    @Override
+    public void onBlockBreakStart(BlockState blockState_1, World world_1, BlockPos blockPos_1,
+            PlayerEntity playerEntity_1) {
+        if (world_1.isClient) return;
+		
+        BlockEntity be = world_1.getBlockEntity(blockPos_1);
+        if (be!=null && be instanceof BatteryEntity) {
+            ((BatteryEntity) be).storage.receiveEnergy(100);
+        }
+    }
 
 }

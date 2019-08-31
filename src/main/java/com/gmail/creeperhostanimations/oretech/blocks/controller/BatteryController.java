@@ -1,26 +1,26 @@
 package com.gmail.creeperhostanimations.oretech.blocks.controller;
 
 import io.github.cottonmc.cotton.gui.CottonScreenController;
+import io.github.cottonmc.cotton.gui.EmptyInventory;
+import io.github.cottonmc.cotton.gui.widget.WBar;
 import io.github.cottonmc.cotton.gui.widget.WGridPanel;
-import io.github.cottonmc.cotton.gui.widget.WItemSlot;
 import io.github.cottonmc.cotton.gui.widget.WLabel;
 import net.minecraft.container.BlockContext;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.recipe.RecipeType;
 import net.minecraft.text.TranslatableText;
+import net.minecraft.util.Identifier;
 
 public class BatteryController extends CottonScreenController {
     public BatteryController(int syncId, PlayerInventory playerInventory, BlockContext context) {
-		super(RecipeType.SMELTING, syncId, playerInventory, getBlockInventory(context), getBlockPropertyDelegate(context));
+		super(RecipeType.SMELTING, syncId, playerInventory, new PlayerInv(), getBlockPropertyDelegate(context));
 		
 		WGridPanel rootPanel = (WGridPanel) getRootPanel();
 
-		rootPanel.add(new WLabel(new TranslatableText("block.examplemod.drama_generator"), WLabel.DEFAULT_TEXT_COLOR), 0, 0);
+		rootPanel.add(new WLabel(new TranslatableText("block.examplemod.battery"), WLabel.DEFAULT_TEXT_COLOR), 0, 0);
 		
-		WItemSlot inputSlot = WItemSlot.of(blockInventory, 0);
-		rootPanel.add(inputSlot, 4, 1);
-		
-		rootPanel.add(this.createPlayerInventoryPanel(), 0, 3);
+		WBar energyLevel = new WBar(new Identifier("oretech", "textures/gui/energy_bg.png"),new Identifier("oretech", "textures/gui/energy_full.png"),0,1);
+		rootPanel.add(energyLevel, 4, 1, 1, 4);
 		
 		rootPanel.validate(this);
 	}

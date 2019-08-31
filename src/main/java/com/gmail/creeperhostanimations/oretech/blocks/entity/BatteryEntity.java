@@ -2,22 +2,47 @@ package com.gmail.creeperhostanimations.oretech.blocks.entity;
 
 import com.gmail.creeperhostanimations.oretech.OreTech;
 
+import io.github.cottonmc.cotton.gui.PropertyDelegateHolder;
 import nerdhub.cardinalenergy.api.IEnergyHandler;
 import nerdhub.cardinalenergy.impl.EnergyStorage;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.inventory.Inventories;
-import net.minecraft.inventory.SidedInventory;
-import net.minecraft.item.ItemStack;
+import net.minecraft.container.PropertyDelegate;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.util.DefaultedList;
-import net.minecraft.util.math.Direction;
 
-public class BatteryEntity extends BlockEntity implements IEnergyHandler, SidedInventory {
+public class BatteryEntity extends BlockEntity implements IEnergyHandler, PropertyDelegateHolder {
 
     public EnergyStorage storage = new EnergyStorage(10000);
+
+    public PropertyDelegate propertyDelegate = new PropertyDelegate(){
     
-    public DefaultedList<ItemStack> slots = DefaultedList.ofSize(1, ItemStack.EMPTY);
+        @Override
+        public int size() {
+            return 2;
+        }
+    
+        @Override
+        public void set(int arg0, int arg1) {
+            switch(arg0) {
+                case 0:
+                    storage.setEnergyStored(arg1);
+                    break;
+                case 1:
+                    storage.setCapacity(arg1);
+                    break;
+            }
+        }
+    
+        @Override
+        public int get(int arg0) {
+            switch(arg0) {
+                case 0:
+                    return storage.getEnergyStored();
+                case 1:
+                    return storage.getCapacity();
+            }
+            return 0;
+        }
+    };
 
     public BatteryEntity() {
         super(OreTech.BATTERY_ENTITY);
@@ -40,62 +65,9 @@ public class BatteryEntity extends BlockEntity implements IEnergyHandler, SidedI
     }
 
     @Override
-    public boolean canPlayerUseInv(PlayerEntity arg0) {
-        return true;
-    }
-
-    @Override
-    public int getInvSize() {
-        return 1;
-    }
-
-    @Override
-    public ItemStack getInvStack(int arg0) {
-        return slots.get(arg0);
-    }
-
-    @Override
-    public boolean isInvEmpty() {
-        return slots.isEmpty();
-    }
-
-    @Override
-    public ItemStack removeInvStack(int arg0) {
-        return slots.remove(arg0);
-    }
-
-    @Override
-    public void setInvStack(int arg0, ItemStack arg1) {
-        slots.set(arg0, arg1);
-    }
-
-    @Override
-    public ItemStack takeInvStack(int arg0, int arg1) {
-        ItemStack result = Inventories.splitStack(slots, arg0, arg1);
-        if (!result.isEmpty()) {
-            markDirty();
-        }
-        return result;
-    }
-
-    @Override
-    public void clear() {
-        slots.clear();
-    }
-
-    @Override
-    public boolean canExtractInvStack(int arg0, ItemStack arg1, Direction arg2) {
-        return true;
-    }
-
-    @Override
-    public boolean canInsertInvStack(int arg0, ItemStack arg1, Direction arg2) {
-        return true;
-    }
-
-    @Override
-	public int[] getInvAvailableSlots(Direction arg0) {
-		return new int[]{0};
+    public PropertyDelegate getPropertyDelegate() {
+        return propertyDelegate;
 	}
+
 
 }

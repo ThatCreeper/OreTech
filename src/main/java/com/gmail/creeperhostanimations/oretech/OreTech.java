@@ -23,7 +23,7 @@ public class OreTech implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		Registry.register(Registry.BLOCK, new Identifier(MODID, "battery"), BATTERY);
-		BATTERY_ENTITY = Registry.register(Registry.BLOCK_ENTITY, new Identifier(MODID, "battery"), BATTERY_ENTITY);
+		BATTERY_ENTITY = Registry.register(Registry.BLOCK_ENTITY, new Identifier(MODID,"battery"), BlockEntityType.Builder.create(BatteryEntity::new, BATTERY).build(null));
 		ContainerProviderRegistry.INSTANCE.registerFactory(BATTERY_CONTROLLER, (syncId, id, player, buf) -> new BatteryController(syncId, player.inventory, BlockContext.create(player.world, buf.readBlockPos())));
 	}
 }

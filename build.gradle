@@ -39,10 +39,10 @@ dependencies {
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modCompile "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-	modCompile "io.github.cottonmc:LibGui:1.3.1"
-  modCompile "com.github.NerdHubMC:Cardinal-Energy:${cardinal_version}"
-  modCompile "com.github.NerdHubMC:Cardinal-Components-API:${cardinal_components}"
-  include "com.github.NerdHubMC:Cardinal-Components-API:${cardinal_components}"
+	modCompile "io.github.cottonmc:LibGui:1.3.2"
+	modCompile "com.github.NerdHubMC:Cardinal-Energy:${cardinal_version}"
+	modCompile "com.github.NerdHubMC:Cardinal-Components-API:${cardinal_components}"
+	include "com.github.NerdHubMC:Cardinal-Components-API:${cardinal_components}"
 
 	// PSA: Some older mods, compiled on Loom 0.2.1, might have outdated Maven POMs.
 	// You may need to force-disable transitiveness on them.
