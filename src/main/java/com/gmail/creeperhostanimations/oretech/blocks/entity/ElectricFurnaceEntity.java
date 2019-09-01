@@ -9,16 +9,19 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.container.PropertyDelegate;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.inventory.Inventories;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.SidedInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.recipe.RecipeType;
+import net.minecraft.recipe.SmeltingRecipe;
 import net.minecraft.util.DefaultedList;
 import net.minecraft.util.Tickable;
 import net.minecraft.util.math.Direction;
 
 public class ElectricFurnaceEntity extends BlockEntity
-        implements SidedInventory, PropertyDelegateHolder, IEnergyHandler, Tickable {
+        implements SidedInventory, PropertyDelegateHolder, IEnergyHandler {
 
     public int progress = 0;
 
@@ -51,7 +54,7 @@ public class ElectricFurnaceEntity extends BlockEntity
         }
     };
 
-    EnergyStorage storage = new EnergyStorage(10000);
+    public EnergyStorage storage = new EnergyStorage(10000);
 
     DefaultedList<ItemStack> inventory = DefaultedList.ofSize(2, ItemStack.EMPTY);
 
@@ -64,11 +67,15 @@ public class ElectricFurnaceEntity extends BlockEntity
     public CompoundTag toTag(CompoundTag tag) {
         super.toTag(tag);
         tag.putInt("progress", progress);
+        Inventories.toTag(tag, inventory);
+        return tag;
     }
 
     @Override
-    public void fromTag(CompoundTag compoundTag_1) {
-        
+    public void fromTag(CompoundTag tag) {
+        super.fromTag(tag);
+        Inventories.fromTag(tag, inventory);
+        progress = tag.getInt("progress");
     }
 
     @Override
@@ -92,22 +99,28 @@ public class ElectricFurnaceEntity extends BlockEntity
 
     @Override
     public ItemStack getInvStack(int arg0) {
-        return null;
+        return inventory.get(arg0);
     }
 
     @Override
     public boolean isInvEmpty() {
-        return false;
+        return inventory.isEmpty();
     }
 
     @Override
     public ItemStack removeInvStack(int arg0) {
-        return null;
+        return inventory.remove(arg0);
     }
 
     @Override
     public void setInvStack(int arg0, ItemStack arg1) {
-
+        if(arg0==1) {
+            inventory.set(arg0, arg1);
+        }else {
+            inventory.set(0, arg1);
+            inventory.set(1, getOutputStack());
+            inventory.set(0, ItemStack.EMPTY);
+        }
     }
 
     @Override
@@ -122,27 +135,22 @@ public class ElectricFurnaceEntity extends BlockEntity
 
     @Override
     public PropertyDelegate getPropertyDelegate() {
-        return null;
+        return propertyDelegate;
     }
 
     @Override
     public boolean canExtractInvStack(int arg0, ItemStack arg1, Direction arg2) {
-        return false;
+        return true;
     }
 
     @Override
     public boolean canInsertInvStack(int arg0, ItemStack arg1, Direction arg2) {
-        return false;
+        return arg0==0;
     }
 
 	@Override
 	public int[] getInvAvailableSlots(Direction arg0) {
-		return null;
+		return new int[]{0,1};
 	}
-
-    @Override
-    public void tick() {
-        if()
-    }
     
 }

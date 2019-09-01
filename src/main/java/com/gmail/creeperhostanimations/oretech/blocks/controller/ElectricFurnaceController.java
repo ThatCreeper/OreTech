@@ -24,14 +24,19 @@ public class ElectricFurnaceController extends CottonScreenController {
         
         rootPanel.add(WItemSlot.of(blockInventory, 0), 1, 2);
 
-        WBar progressBar = new WBar(new Identifier("oretech","textures/gui/furnace_bar_bg"), new Identifier("oretech","textures/gui/furnace_bar"), 0, 1, Direction.RIGHT);
-        rootPanel.add(progressBar, 3, 2);
+        //WBar progressBar = new WBar(new Identifier("oretech","textures/gui/furnace_bar_bg"), new Identifier("oretech","textures/gui/furnace_bar"), 0, 1, Direction.RIGHT);
+        //rootPanel.add(progressBar, 3, 2);
 
-        rootPanel.add(WItemSlot.of(blockInventory, 0), 6, 2);
+        rootPanel.add(WItemSlot.of(blockInventory, 1), 6, 2);
 
         rootPanel.add(new WPlayerInvPanel(playerInventory), 0, 4);
 
 		rootPanel.validate(this);
+    }
+
+    @Override
+    public int getCraftingSlotCount() {
+        return 1;
     }
 
 }
