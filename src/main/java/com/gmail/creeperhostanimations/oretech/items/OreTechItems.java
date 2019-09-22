@@ -19,7 +19,7 @@ public class OreTechItems {
     }
 
     public static void register(String name, Item item) {
-        Registry.register(Registry.ITEM, new Identifier(OreTech.MODID), item);
+        Registry.register(Registry.ITEM, new Identifier(OreTech.MODID,name), item);
     }
 
 }
