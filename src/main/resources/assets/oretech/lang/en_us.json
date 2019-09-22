@@ -1,4 +1,5 @@
 {
     "block.oretech.battery": "Battery",
-    "block.oretech.crank": "Crank"
+    "block.oretech.crank": "Crank",
+    "block.oretech.electric_furnace": "Electric Furnace"
 }

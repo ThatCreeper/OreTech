@@ -3,7 +3,7 @@ package com.gmail.creeperhostanimations.oretech.blocks;
 import java.util.Collections;
 import java.util.Set;
 
-import com.gmail.creeperhostanimations.oretech.OreTech;
+import com.gmail.creeperhostanimations.oretech.blocks.controller.OreTechControllers;
 import com.gmail.creeperhostanimations.oretech.blocks.entity.BatteryEntity;
 
 import nerdhub.cardinal.components.api.ComponentType;
@@ -43,7 +43,7 @@ public class Battery extends Block implements BlockEntityProvider, BlockComponen
 		
 		BlockEntity be = world.getBlockEntity(pos);
 		if (be!=null && be instanceof BatteryEntity) {
-			ContainerProviderRegistry.INSTANCE.openContainer(OreTech.BATTERY_CONTROLLER, player, (buf)->{
+			ContainerProviderRegistry.INSTANCE.openContainer(OreTechControllers.BATTERY_CONTROLLER, player, (buf)->{
 				buf.writeBlockPos(pos);
 			});
 		}

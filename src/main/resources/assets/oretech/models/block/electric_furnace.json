@@ -1,0 +1,12 @@
+{
+    "parent": "block/cube",
+    "textures": {
+        "north": "oretech:block/electric_furnace_front",
+        "east": "oretech:block/electric_furnace_top",
+        "south": "oretech:block/electric_furnace_top",
+        "west": "oretech:block/electric_furnace_top",
+        "up": "oretech:block/electric_furnace_top",
+        "down": "oretech:block/electric_furnace_top",
+        "particle": "oretech:block/electric_furnace_top"
+    }
+}

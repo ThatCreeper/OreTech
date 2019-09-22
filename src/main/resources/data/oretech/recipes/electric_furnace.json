@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "iCi",
+        "CfC",
+        "iCi"
+    ],
+    "key": {
+        "i": {
+            "item": "minecraft:iron_ingot"
+        },
+        "C": {
+            "item": "oretech:power_cable"
+        },
+        "f": {
+            "item": "minecraft:furnace"
+        }
+    },
+    "result": {
+        "item": "oretech:cable",
+        "count": 1
+    }
+}

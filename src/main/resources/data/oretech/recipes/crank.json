@@ -1,0 +1,21 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "pcC"
+    ],
+    "key": {
+        "p": {
+            "tag": "minecraft:planks"
+        },
+        "c": {
+            "item": "oretech:power_cable"
+        },
+        "C": {
+            "item": "oretech:crank_handle"
+        }
+    },
+    "result": {
+        "item": "oretech:crank",
+        "count": 1
+    }
+}

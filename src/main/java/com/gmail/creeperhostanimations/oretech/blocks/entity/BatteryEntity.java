@@ -50,7 +50,7 @@ public class BatteryEntity extends BlockEntity implements IEnergyHandler, Proper
     };
 
     public BatteryEntity() {
-        super(OreTech.BATTERY_ENTITY);
+        super(OreTechBlockEntities.BATTERY_ENTITY);
         // TODO Auto-generated constructor stub
 	}
     

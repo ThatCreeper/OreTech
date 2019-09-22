@@ -1,0 +1,18 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "cRc"
+    ],
+    "key": {
+        "c": {
+            "item": "oretech:cable"
+        },
+        "r": {
+            "item": "minecraft:redstone"
+        }
+    },
+    "result": {
+        "item": "oretech:power_cable",
+        "count": 1
+    }
+}

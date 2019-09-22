@@ -17,7 +17,7 @@ public class CrankEntity extends BlockEntity implements IEnergyHandler, Tickable
     public EnergyStorage storage = new EnergyStorage(10000);
 
     public CrankEntity() {
-        super(OreTech.CRANK_ENTITY);
+        super(OreTechBlockEntities.CRANK_ENTITY);
         // TODO Auto-generated constructor stub
 	}
 

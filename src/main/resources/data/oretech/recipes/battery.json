@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "ccc",
+        "CCC",
+        "ccc"
+    ],
+    "key": {
+        "c": {
+            "item": "minecraft:cobblestone"
+        },
+        "C": {
+            "item:": "oretech:power_cable"
+        }
+    },
+    "result": {
+        "item": "oretech:battery",
+        "count": 1
+    }
+}
